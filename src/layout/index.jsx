@@ -1,2 +1,4 @@
 import Layout from "./Layout";
-export { Layout };
+import LayoutSplit from "./LayoutSplit.jsx";
+
+export {Layout, LayoutSplit};
