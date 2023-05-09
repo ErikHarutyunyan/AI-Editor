@@ -1,24 +1,34 @@
-import { useForm } from "react-hook-form";
-import { useLocation, useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import {useForm} from "react-hook-form";
+import {Link, useLocation, useNavigate} from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
 
-import React, { useEffect } from "react";
-import { yupResolver } from "@hookform/resolvers/yup";
+import React, {useCallback, useEffect, useState} from "react";
+import {yupResolver} from "@hookform/resolvers/yup";
 
-import { userLogin } from "../../app/features/user/userActions";
-import { schema_signIn } from "../../utils/authShema";
+import {userLogin} from "../../app/features/user/userActions";
+import {schema_signIn} from "../../utils/authShema";
 import TokenService from "../../services/token.service";
 
 // Images
-import { bgAuth } from "../../components/Image/Image";
-import { ImgWrapper } from "../../components/Image/Image.styles";
+import {bgAuth, shape1} from "../../components/Image/Image";
+import {ImgWrapper} from "../../components/Image/Image.styles";
+
 // Layout
-import { Wrapper } from "./Login.styles.jsx";
+import {Shape, Wrapper} from "./Login.styles.jsx";
 import Input from "../../components/Input";
 import SplitScreen from "./../../components/LayoutComponents/SplitScreen";
+import Error from "../../components/Error";
+import Button from "../../components/Button";
 
+const rememberCheck = localStorage.getItem("userRemember");
 const LeftScreen = () => {
-  const { loading, userInfo, error } = useSelector((state) => state.user);
+  const [loginInfo, setLoginInfo] = useState({
+    email: "",
+    password: "",
+    isChecked: false,
+  });
+  const {loading, userInfo, error} = useSelector((state) => state.user);
+  console.log("loading :", loading);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
@@ -27,60 +37,145 @@ const LeftScreen = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: {errors},
   } = useForm({
     mode: "onSubmit",
     // onSubmit
     resolver: yupResolver(schema_signIn),
   });
 
+  // remember the user
+  useEffect(() => {
+    if (rememberCheck) {
+      const rememberInfo = JSON.parse(localStorage.getItem("userRemember"));
+      setLoginInfo({
+        ...rememberInfo,
+      });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [rememberCheck]);
+
   // redirect authenticated user to profile screen
   useEffect(() => {
     if (userInfo) {
-      navigate(fromPage, { replace: true });
+      navigate(fromPage, {replace: true});
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [navigate, userInfo]);
 
   const submitForm = (data) => {
-    debugger;
+    if (!rememberCheck) {
+      const {email, password, isChecked} = loginInfo;
+      localStorage.setItem(
+        "userRemember",
+        JSON.stringify({
+          email,
+          password,
+          isChecked,
+        })
+      );
+    }
     dispatch(userLogin(data));
     TokenService.setUser(data);
     // Demonstration
-    navigate(fromPage, { replace: true });
+    navigate(fromPage, {replace: true});
   };
+
+  const onChangeValue = useCallback(
+    (event) => {
+      setLoginInfo({
+        ...loginInfo,
+        [event.target.name]: event.target.value,
+      });
+    },
+    [loginInfo]
+  );
+
+  const onChangeCheckbox = useCallback(
+    (event) => {
+      setLoginInfo({
+        ...loginInfo,
+        isChecked: event.target.checked,
+      });
+    },
+    [loginInfo]
+  );
+
   return (
-    <form onSubmit={handleSubmit(submitForm)}>
-      {error && <p>{error}</p>}
-      {/* {errors && <Error msg={errors} />} */}
-      <div className="form-group">
-        {errors?.email?.message && <p>{errors.email.message}</p>}
-        {/*<label htmlFor="email">Email</label>*/}
-        <Input
-          type="text"
-          className="form-input"
-          place={"Email"}
-          name={"emailUser"}
-          schema={{ ...register("email") }}
-          required
+    <Wrapper>
+      <Shape position={"absolute"} left={"0"} bottom={"38px"}>
+        <ImgWrapper
+          src={shape1}
+          alt="bgAuth"
+          width={"auto"}
+          height={"auto"}
+          objectFit={"contain"}
         />
-      </div>
-      <div className="form-group">
-        {errors?.password?.message && <p>{errors.password.message}</p>}
-        {/*<label htmlFor="password">Password</label>*/}
-        <Input
-          type="password"
-          className="form-input"
-          name={"passUser"}
-          place={"Password"}
-          schema={{ ...register("password") }}
-          required
-        />
-      </div>
-      <button type="submit" className="button" disabled={loading}>
-        Login
-      </button>
-    </form>
+      </Shape>
+      <form onSubmit={handleSubmit(submitForm)}>
+        <div className="formTitle">
+          <h2>Welcome to Lethia</h2>
+        </div>
+        {error && <Error>{error}</Error>}
+        {/*{errors && <Error msg={errors}/>}*/}
+        <div className="formGroup">
+          {errors?.email?.message && <Error>{errors.email.message}</Error>}
+          <Input
+            type="text"
+            className="form-input"
+            placeholder={"Email"}
+            name={"email"}
+            value={loginInfo.email}
+            schema={{...register("email")}}
+            required
+            callFunc={onChangeValue}
+          />
+        </div>
+        <div className="formGroup">
+          {errors?.password?.message && (
+            <Error>{errors.password.message}</Error>
+          )}
+          <Input
+            type="password"
+            className="form-input"
+            name={"password"}
+            value={loginInfo.password}
+            placeholder={"Password"}
+            schema={{...register("password")}}
+            required
+            callFunc={onChangeValue}
+          />
+        </div>
+        <div className="formGroup">
+          <Input
+            styleInput={"check"}
+            type={"checkbox"}
+            name={"remember"}
+            className="form-input"
+            text={"Remember Me"}
+            id={"rememberInput"}
+            callFunc={onChangeCheckbox}
+          />
+        </div>
+        <div className="formForgot">
+          <Link to={"/forgot"}>Forgot password</Link>
+        </div>
+        <div className="formFooter">
+          <Button
+            type="submit"
+            className="btnPurple"
+            disabled={loading}
+            title={"Login"}
+            mW={"268px"}
+            align="center"
+          />
+          <div className="formDontAcc">
+            <span>You don't have account? </span>
+            <Link to="/register">Sign up</Link>
+          </div>
+        </div>
+      </form>
+    </Wrapper>
   );
 };
 const RightScreen = () => {
@@ -99,8 +194,8 @@ const Login = () => {
   return (
     <Wrapper>
       <SplitScreen leftWidth={6} rightWidth={5} h={"100vh"}>
-        <LeftScreen />
-        <RightScreen />
+        <LeftScreen/>
+        <RightScreen/>
       </SplitScreen>
     </Wrapper>
   );

@@ -1,11 +1,11 @@
-// import React, { lazy, Suspense } from "react";
+import React, {lazy, Suspense} from "react";
 
-// const LazyImages = lazy(() => import("./Image"));
+const LazyImages = lazy(() => import("./Image"));
 
-// const Image = (props) => (
-//   <Suspense fallback={null}>
-//     <LazyImages {...props} />
-//   </Suspense>
-// );
+const Image = (props) => (
+  <Suspense fallback={null}>
+    <LazyImages {...props} />
+  </Suspense>
+);
 
-// export default Image;
+export default Image;

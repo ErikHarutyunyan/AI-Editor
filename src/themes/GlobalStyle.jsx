@@ -1,8 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap');
-
   * {
     padding: 0;
     margin: 0;
@@ -90,8 +88,15 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   :root {
-     --color-white: #FFFFFF;
+    --color-white: #FFFFFF;
     --color-black: #000000;
     --color-purple: #7F188F;
+    --color-lavender: #F6BCFF;
+    --color-pink: #D6BBFB;
+    --color-delight: rgba(253, 238, 255, 0.6);
+    --color-flintstone: #667085;
+    --fz-14: 14px;
+    --lh-24: 24px;
+    --fs-Outfit: 'Outfit', serif;
   }
 `;

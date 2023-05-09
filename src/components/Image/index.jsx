@@ -1,3 +1,3 @@
-// import Image from "./Image.lazy";
+import ImageW from "./Image.lazy";
 
-// export default Image;
+export default ImageW;

@@ -1,30 +1,42 @@
 import React from "react";
 // Styles
-import { DefaultWrapper } from "./Input.styles";
+import {CheckWrapper, DefaultWrapper} from "./Input.styles";
 
 const Input = ({
-  style = "default",
-  type = "",
-  place = "",
-  val = "",
-  nam = "",
-  schema = null,
-  className = "",
-  callFunc = () => {},
-}) => {
-  if (style === "default")
+                 styleInput = "default",
+                 type = "",
+                 placeholder = "",
+                 value = "",
+                 name = "",
+                 schema = null,
+                 className = "",
+                 id = "",
+                 text = "",
+                 callFunc = () => {
+                 },
+               }) => {
+  if (styleInput === "default")
     return (
       <DefaultWrapper>
         <input
           className={className}
           type={type}
-          placeholder={place}
-          // value={val}
-          name={nam}
+          placeholder={placeholder}
+          value={value}
+          name={name}
           {...schema}
-          // onChange={callFunc}
+          onChange={callFunc}
         />
       </DefaultWrapper>
+    );
+  if (styleInput === "check")
+    return (
+      <CheckWrapper>
+        <label className="container" htmlFor={id}>
+          <input type={type} id={id} name={name} className={className} onChange={callFunc} aria-label="check"/>
+          {text}
+        </label>
+      </CheckWrapper>
     );
 };
 
