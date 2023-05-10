@@ -1,20 +1,19 @@
 import React from "react";
 // Styles
-import {CheckWrapper, DefaultWrapper} from "./Input.styles";
+import { CheckWrapper, DefaultWrapper } from "./Input.styles";
 
 const Input = ({
-                 styleInput = "default",
-                 type = "",
-                 placeholder = "",
-                 value = "",
-                 name = "",
-                 schema = null,
-                 className = "",
-                 id = "",
-                 text = "",
-                 callFunc = () => {
-                 },
-               }) => {
+  styleInput = "default",
+  type = "",
+  placeholder = "",
+  value = "",
+  name = "",
+  schema = null,
+  className = "",
+  id = "",
+  text = "",
+  callFunc = () => {},
+}) => {
   if (styleInput === "default")
     return (
       <DefaultWrapper>
@@ -22,10 +21,11 @@ const Input = ({
           className={className}
           type={type}
           placeholder={placeholder}
-          value={value}
+          // value={value}
           name={name}
           {...schema}
-          onChange={callFunc}
+          // onChange={callFunc}
+          aria-label="userInfo"
         />
       </DefaultWrapper>
     );
@@ -33,7 +33,14 @@ const Input = ({
     return (
       <CheckWrapper>
         <label className="container" htmlFor={id}>
-          <input type={type} id={id} name={name} className={className} onChange={callFunc} aria-label="check"/>
+          <input
+            type={type}
+            id={id}
+            name={name}
+            className={className}
+            // onChange={callFunc}
+            aria-label="check"
+          />
           {text}
         </label>
       </CheckWrapper>

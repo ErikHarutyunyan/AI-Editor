@@ -1,87 +1,87 @@
-import axios from 'axios'
-import {createAsyncThunk} from '@reduxjs/toolkit'
-import TokenService from '../../../services/token.service'
+import axios from "axios";
+import { createAsyncThunk } from "@reduxjs/toolkit";
+import TokenService from "../../../services/token.service";
 
 export const userLogin = createAsyncThunk(
-  'user/login',
+  "user/login",
 
-  async ({username, password}, {rejectWithValue}) => {
+  async ({ username, password }, { rejectWithValue }) => {
     try {
       // configure header's Content-Type as JSON
       const config = {
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
-      }
+      };
 
-      const {data} = await axios.post(
-        'http://127.0.0.1:8000/api/token/',
-        {username, password},
+      const { data } = await axios.post(
+        "http://127.0.0.1:8000/api/token/",
+        { username, password },
         config
-      )
+      );
       // store user's token in local storage
       // localStorage.setItem('userToken', data.userToken)
-      TokenService.setUser(data)
+      TokenService.setUser(data);
 
-      return data
+      return data;
     } catch (error) {
       // return custom error message from API if any
       if (error.response && error.response.data.message) {
-        return rejectWithValue(error.response.data.message)
+        return rejectWithValue(error.response.data.message);
       } else {
-        return rejectWithValue(error.message)
+        return rejectWithValue(error.message);
       }
     }
   }
-)
+);
 
 export const registerUser = createAsyncThunk(
-  'user/register',
-  async ({firstName, email, password}, {rejectWithValue}) => {
+  "user/register",
+  async ({ firstName, lastName, email, password }, { rejectWithValue }) => {
     try {
       const config = {
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
-      }
+      };
 
       await axios.post(
-        ' /api/user/register',
-        {firstName, email, password},
+        " /api/user/register",
+        { firstName, lastName, email, password },
         config
-      )
+      );
     } catch (error) {
       if (error.response && error.response.data.message) {
-        return rejectWithValue(error.response.data.message)
+        return rejectWithValue(error.response.data.message);
       } else {
-        return rejectWithValue(error.message)
+        return rejectWithValue(error.message);
       }
     }
   }
-)
+);
 
 export const getUserDetails = createAsyncThunk(
-  'user/getUserDetails',
-  async (arg, {getState, rejectWithValue}) => {
+  "user/getUserDetails",
+  async (arg, { getState, rejectWithValue }) => {
     try {
       // get user data from store
-      const {user} = getState()
+      const { user } = getState();
 
       // configure authorization header with user's token
       const config = {
         headers: {
           Authorization: `Bearer ${user.userToken}`,
         },
-      }
+      };
 
-      const {data} = await axios.get(`/api/user/profile`, config)
-      return data
+      const { data } = await axios.get(`/api/user/profile`, config);
+      return data;
     } catch (error) {
       if (error.response && error.response.data.message) {
-        return rejectWithValue(error.response.data.message)
+        return rejectWithValue(error.response.data.message);
       } else {
-        return rejectWithValue(error.message)
+        return rejectWithValue(error.message);
       }
     }
   }
-)
+);

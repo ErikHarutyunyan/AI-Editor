@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { device } from "../../themes/Breakpoints";
 
 export const Wrapper = styled.div`
   position: relative;
@@ -13,12 +14,13 @@ export const Wrapper = styled.div`
     justify-content: center;
     flex-direction: column;
     height: 100%;
-    max-width: 320px;
+    max-width: 660px;
     width: 100%;
     z-index: 1;
     padding: 0 20px;
     .form {
       &Title {
+        text-align: center;
         h2 {
           font-family: "GT Super Ds Trial", sans-serif;
           font-style: normal;
@@ -26,14 +28,34 @@ export const Wrapper = styled.div`
           font-size: 30px;
           line-height: 38px;
           color: #7f188f;
-          text-align: center;
         }
-
-        margin-bottom: 60px;
+        h3 {
+          font-family: "Outfit";
+          font-style: normal;
+          font-weight: 400;
+          font-size: 20px;
+          line-height: 38px;
+          color: #3e3e3e;
+          margin-top: 9px;
+        }
       }
-
-      &Group:not(:first-child) {
-        margin-top: 8px;
+      &Wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: space-between;
+        margin-top: 83px;
+        @media ${device.mobileL} {
+          gap: 0px;
+          row-gap: 20px;
+          margin-top: 45px;
+        }
+      }
+      &Group {
+        flex-basis: calc(50% - 20px);
+        @media ${device.mobileL} {
+          flex-basis: 100%;
+        }
       }
 
       &Footer {

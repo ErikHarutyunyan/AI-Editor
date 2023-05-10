@@ -7,4 +7,6 @@ export const ImgWrapper = styled.img.attrs((props) => ({
   height: props?.height ? props.height : "auto",
 }))`
   object-fit: ${(props) => props?.objectFit};
+  max-width: ${(props) => props?.maxWidth};
+  margin: ${(props) => props?.center ? "0 auto" : "none"};
 `;

@@ -1,4 +1,12 @@
-import { createGlobalStyle } from "styled-components";
+import styled, {createGlobalStyle} from "styled-components";
+
+export const Shape = styled.div`
+  position: ${(props) => props?.position};
+  top: ${(props) => props?.top};
+  left: ${(props) => props?.left};
+  right: ${(props) => props?.right};
+  bottom: ${(props) => props?.bottom};
+`;
 
 export const GlobalStyle = createGlobalStyle`
   * {
@@ -34,7 +42,6 @@ export const GlobalStyle = createGlobalStyle`
   html {
     height: 100%;
     width: 100%;
-    font-size: 100%;
     line-height: 1;
     font-size: 14px;
     font-family: 'Outfit', sans-serif;

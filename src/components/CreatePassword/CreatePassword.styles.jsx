@@ -1,24 +1,20 @@
 import styled from "styled-components";
-
+import { device } from "../../themes/Breakpoints";
 export const Wrapper = styled.div`
-  position: relative;
+  max-width: 660px;
   width: 100%;
   height: 100%;
-  background: rgba(253, 238, 255, 0.6);
-
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
   form {
     position: relative;
     margin: auto;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    height: 100%;
-    max-width: 320px;
     width: 100%;
     z-index: 1;
-    padding: 0 20px;
     .form {
       &Title {
+        text-align: center;
         h2 {
           font-family: "GT Super Ds Trial", sans-serif;
           font-style: normal;
@@ -26,18 +22,36 @@ export const Wrapper = styled.div`
           font-size: 30px;
           line-height: 38px;
           color: #7f188f;
-          text-align: center;
         }
-
-        margin-bottom: 60px;
+        h3 {
+          font-family: "Outfit";
+          font-style: normal;
+          font-weight: 400;
+          font-size: 20px;
+          line-height: 38px;
+          color: #3e3e3e;
+          margin-top: 9px;
+        }
       }
-
-      &Group:not(:first-child) {
-        margin-top: 8px;
+      &Wrapper {
+        display: flex;
+        flex-direction: column;
+        max-width: 320px;
+        margin: 0 auto;
+        margin-top: 64px;
+        row-gap: 8px;
+      }
+      &Group {
+        width: 100%;
       }
 
       &Footer {
         margin-top: 64px;
+        a {
+          display: inline-block;
+          width: 100%;
+          margin-top: 18px;
+        }
       }
 
       &Ask {
@@ -54,19 +68,8 @@ export const Wrapper = styled.div`
         }
 
         a {
-          color: #d6bbfb;
-        }
-      }
-
-      &Forgot {
-        margin-top: 8px;
-
-        a {
-          font-family: "Outfit", sans-serif;
-          font-style: normal;
-          font-weight: 500;
-          font-size: 14px;
-          line-height: 38px;
+          display: inline;
+          margin-top: 0;
           color: #d6bbfb;
         }
       }

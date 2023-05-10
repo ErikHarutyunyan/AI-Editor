@@ -1,4 +1,4 @@
 import Layout from "./Layout";
-import LayoutSplit from "./LayoutSplit.jsx";
+import LayoutFullScreen from "./LayoutFullScreen.jsx";
 
-export {Layout, LayoutSplit};
+export { Layout, LayoutFullScreen };

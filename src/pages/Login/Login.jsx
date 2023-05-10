@@ -1,34 +1,41 @@
-import {useForm} from "react-hook-form";
-import {Link, useLocation, useNavigate} from "react-router-dom";
-import {useDispatch, useSelector} from "react-redux";
+import { useForm } from "react-hook-form";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
-import React, {useCallback, useEffect, useState} from "react";
-import {yupResolver} from "@hookform/resolvers/yup";
+import React, { useEffect } from "react";
+import { yupResolver } from "@hookform/resolvers/yup";
 
-import {userLogin} from "../../app/features/user/userActions";
-import {schema_signIn} from "../../utils/authShema";
+import { userLogin } from "../../app/features/user/userActions";
+import { schema_signIn } from "../../utils/authShema";
 import TokenService from "../../services/token.service";
 
-// Images
-import {bgAuth, shape1} from "../../components/Image/Image";
-import {ImgWrapper} from "../../components/Image/Image.styles";
-
-// Layout
-import {Shape, Wrapper} from "./Login.styles.jsx";
+// Components
 import Input from "../../components/Input";
-import SplitScreen from "./../../components/LayoutComponents/SplitScreen";
 import Error from "../../components/Error";
 import Button from "../../components/Button";
+// Images
+import { bgAuth, shape1 } from "../../components/Image/Image";
+import { ImgWrapper } from "../../components/Image/Image.styles";
+// Layout
+import SplitScreen from "../../components/SplitScreen/SplitScreen";
+// Styles
+import { Wrapper } from "./Login.styles.jsx";
+// Hooks
+import useMediaQuery from "../../hooks/useMediaQuery";
+import { size } from "../../themes/Breakpoints";
+import { Shape } from "../../themes/GlobalStyle";
 
-const rememberCheck = localStorage.getItem("userRemember");
+// const rememberCheck = JSON.parse(localStorage.getItem("userRemember")) || {
+//   email: "",
+//   password: "",
+//   isChecked: false,
+// };
+
 const LeftScreen = () => {
-  const [loginInfo, setLoginInfo] = useState({
-    email: "",
-    password: "",
-    isChecked: false,
-  });
-  const {loading, userInfo, error} = useSelector((state) => state.user);
-  console.log("loading :", loading);
+  // const [loginInfo, setLoginInfo] = useState({
+  //   ...rememberCheck,
+  // });
+  const { loading, userInfo, error } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
@@ -37,69 +44,62 @@ const LeftScreen = () => {
   const {
     register,
     handleSubmit,
-    formState: {errors},
+    formState: { errors },
   } = useForm({
-    mode: "onSubmit",
+    mode: "onBlur",
     // onSubmit
     resolver: yupResolver(schema_signIn),
   });
 
-  // remember the user
-  useEffect(() => {
-    if (rememberCheck) {
-      const rememberInfo = JSON.parse(localStorage.getItem("userRemember"));
-      setLoginInfo({
-        ...rememberInfo,
-      });
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [rememberCheck]);
-
   // redirect authenticated user to profile screen
   useEffect(() => {
     if (userInfo) {
-      navigate(fromPage, {replace: true});
+      navigate(fromPage, { replace: true });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [navigate, userInfo]);
 
   const submitForm = (data) => {
-    if (!rememberCheck) {
-      const {email, password, isChecked} = loginInfo;
-      localStorage.setItem(
-        "userRemember",
-        JSON.stringify({
-          email,
-          password,
-          isChecked,
-        })
-      );
-    }
+    // if (
+    //   loginInfo.email !== "" &&
+    //   loginInfo.password !== "" &&
+    //   loginInfo.isChecked
+    // ) {
+    //   const { email, password, isChecked } = loginInfo;
+    //   localStorage.setItem(
+    //     "userRemember",
+    //     JSON.stringify({
+    //       email,
+    //       password,
+    //       isChecked,
+    //     })
+    //   );
+    // }
     dispatch(userLogin(data));
     TokenService.setUser(data);
     // Demonstration
-    navigate(fromPage, {replace: true});
+    navigate(fromPage, { replace: true });
   };
 
-  const onChangeValue = useCallback(
-    (event) => {
-      setLoginInfo({
-        ...loginInfo,
-        [event.target.name]: event.target.value,
-      });
-    },
-    [loginInfo]
-  );
+  // const onChangeValue = useCallback(
+  //   (event) => {
+  //     setLoginInfo({
+  //       ...loginInfo,
+  //       [event.target.name]: event.target.value,
+  //     });
+  //   },
+  //   [loginInfo]
+  // );
 
-  const onChangeCheckbox = useCallback(
-    (event) => {
-      setLoginInfo({
-        ...loginInfo,
-        isChecked: event.target.checked,
-      });
-    },
-    [loginInfo]
-  );
+  // const onChangeCheckbox = useCallback(
+  //   (event) => {
+  //     setLoginInfo({
+  //       ...loginInfo,
+  //       isChecked: event.target.checked,
+  //     });
+  //   },
+  //   [loginInfo]
+  // );
 
   return (
     <Wrapper>
@@ -121,14 +121,14 @@ const LeftScreen = () => {
         <div className="formGroup">
           {errors?.email?.message && <Error>{errors.email.message}</Error>}
           <Input
-            type="text"
+            type="email"
             className="form-input"
             placeholder={"Email"}
             name={"email"}
-            value={loginInfo.email}
-            schema={{...register("email")}}
+            // value={loginInfo.email}
+            schema={{ ...register("email") }}
             required
-            callFunc={onChangeValue}
+            // callFunc={onChangeValue}
           />
         </div>
         <div className="formGroup">
@@ -139,11 +139,11 @@ const LeftScreen = () => {
             type="password"
             className="form-input"
             name={"password"}
-            value={loginInfo.password}
+            // value={loginInfo.password}
             placeholder={"Password"}
-            schema={{...register("password")}}
+            schema={{ ...register("password") }}
             required
-            callFunc={onChangeValue}
+            // callFunc={onChangeValue}
           />
         </div>
         <div className="formGroup">
@@ -154,7 +154,7 @@ const LeftScreen = () => {
             className="form-input"
             text={"Remember Me"}
             id={"rememberInput"}
-            callFunc={onChangeCheckbox}
+            // callFunc={onChangeCheckbox}
           />
         </div>
         <div className="formForgot">
@@ -169,7 +169,7 @@ const LeftScreen = () => {
             mW={"268px"}
             align="center"
           />
-          <div className="formDontAcc">
+          <div className="formAsk">
             <span>You don't have account? </span>
             <Link to="/register">Sign up</Link>
           </div>
@@ -191,11 +191,12 @@ const RightScreen = () => {
 };
 
 const Login = () => {
+  const isDesktop = useMediaQuery(`(min-width: ${size.tablet})`);
   return (
     <Wrapper>
-      <SplitScreen leftWidth={6} rightWidth={5} h={"100vh"}>
-        <LeftScreen/>
-        <RightScreen/>
+      <SplitScreen leftWidth={6} rightWidth={isDesktop ? 5 : 0} h={"100vh"}>
+        <LeftScreen />
+        <RightScreen />
       </SplitScreen>
     </Wrapper>
   );
