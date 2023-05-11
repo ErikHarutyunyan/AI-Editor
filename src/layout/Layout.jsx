@@ -1,6 +1,7 @@
 import React from 'react'
 import {NavLink, Outlet, ScrollRestoration} from "react-router-dom"
 import { ABOUT, BLOG, HOME } from '../router/route-path';
+import Header from './../components/Header';
 const Layout = () => {
 
    let getKey = React.useCallback(
@@ -15,11 +16,7 @@ const Layout = () => {
   );
   return (
     <>
-      <header>
-        <NavLink to={HOME}>Home</NavLink>
-        <NavLink to={ABOUT}>About</NavLink>
-        <NavLink to={BLOG}>Blog</NavLink>
-      </header>
+      <Header/>
       <main>
         <Outlet />
       </main>

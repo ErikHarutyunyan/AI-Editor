@@ -1,20 +1,13 @@
 import axios from 'axios'
-import { API_ENDPOINT } from '../config/config';
+import { API_ENDPOINT } from '../api';
 import TokenService from './token.service';
-
-
-
-
 
 const axiosInstance = axios.create({
     baseURL: API_ENDPOINT,
     headers: {
         "Content-Type": "application/json",
     },
-
 });
-
-
 
 axiosInstance.interceptors.request.use(
     (config) => {

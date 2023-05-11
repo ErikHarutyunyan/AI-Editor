@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
   text-align: center;
   z-index: 1;
   h2 {
-    font-family: "GT Super Ds Trial";
+    font-family: var(--font-2);
     font-style: normal;
     font-weight: 500;
     font-size: 30px;
@@ -20,7 +20,7 @@ export const Wrapper = styled.div`
     margin-top: 64px;
   }
   h3 {
-    font-family: "Outfit";
+    font-family: var(--font-1);
     font-style: normal;
     font-weight: 500;
     font-size: 18px;

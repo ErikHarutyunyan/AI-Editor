@@ -1,11 +1,13 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import TokenService from "../../../services/token.service";
+import axiosInstance from "../../../services/axiosInstance";
+import { API_ENDPOINT, auth } from "../../../api";
 
 export const userLogin = createAsyncThunk(
   "user/login",
 
-  async ({ username, password }, { rejectWithValue }) => {
+  async ({ email, password }, { rejectWithValue }) => {
     try {
       // configure header's Content-Type as JSON
       const config = {
@@ -15,16 +17,18 @@ export const userLogin = createAsyncThunk(
       };
 
       const { data } = await axios.post(
-        "http://127.0.0.1:8000/api/token/",
-        { username, password },
+        `${API_ENDPOINT}${auth.login}`,
+        { email, password },
         config
       );
       // store user's token in local storage
-      // localStorage.setItem('userToken', data.userToken)
-      TokenService.setUser(data);
+      // localStorage.setItem("userToken", data.tokens);
+      // TokenService.setUser(data);
 
       return data;
     } catch (error) {
+      console.log("error :", error);
+      debugger;
       // return custom error message from API if any
       if (error.response && error.response.data.message) {
         return rejectWithValue(error.response.data.message);
@@ -37,7 +41,10 @@ export const userLogin = createAsyncThunk(
 
 export const registerUser = createAsyncThunk(
   "user/register",
-  async ({ firstName, lastName, email, password }, { rejectWithValue }) => {
+
+  async ({ first_name, last_name, email, password }, { rejectWithValue }) => {
+    debugger;
+    console.log("firstName :", first_name);
     try {
       const config = {
         headers: {
@@ -46,8 +53,8 @@ export const registerUser = createAsyncThunk(
       };
 
       await axios.post(
-        " /api/user/register",
-        { firstName, lastName, email, password },
+        `${API_ENDPOINT}${auth.register}`,
+        { first_name, last_name, email, password },
         config
       );
     } catch (error) {
@@ -74,7 +81,7 @@ export const getUserDetails = createAsyncThunk(
         },
       };
 
-      const { data } = await axios.get(`/api/user/profile`, config);
+      const { data } = await axiosInstance.get(`/api/user/profile`, config);
       return data;
     } catch (error) {
       if (error.response && error.response.data.message) {

@@ -14,6 +14,7 @@ const PasswordUpdate = () => {
         height={"auto"}
         objectFit={"contain"}
         maxWidth={"102px"}
+        loading={"lazy"}
         center
       />
       <h2>Password Updated</h2>

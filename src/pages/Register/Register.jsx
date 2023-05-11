@@ -28,6 +28,7 @@ const LeftScreen = () => {
       width={"100%"}
       height={"100%"}
       objectFit={"cover"}
+      loading={"lazy"}
     />
   );
 };
@@ -43,7 +44,10 @@ const RightScreen = () => {
     formState: { errors },
   } = useForm({ mode: "onBlur", resolver: yupResolver(schema_signUp) });
 
+  console.log("errors :", errors);
   const submitForm = (data) => {
+    console.log("data :", data);
+    debugger;
     // if (
     //   loginInfo.email !== "" &&
     //   loginInfo.password !== "" &&
@@ -79,6 +83,7 @@ const RightScreen = () => {
           width={"auto"}
           height={"auto"}
           objectFit={"contain"}
+          loading={"lazy"}
         />
       </Shape>
       <Shape position={"absolute"} left={"0"} bottom={"0px"}>
@@ -88,6 +93,7 @@ const RightScreen = () => {
           width={"auto"}
           height={"auto"}
           objectFit={"contain"}
+          loading={"lazy"}
         />
       </Shape>
       <form onSubmit={handleSubmit(submitForm)}>
@@ -97,8 +103,8 @@ const RightScreen = () => {
         </div>
         <div className="formWrapper">
           <div className="formGroup">
-            {errors?.firstName?.message && (
-              <Error>{errors.firstName.message}</Error>
+            {errors?.first_name?.message && (
+              <Error>{errors.first_name.message}</Error>
             )}
             <Input
               type="text"
@@ -106,14 +112,14 @@ const RightScreen = () => {
               placeholder={"First Name"}
               name={"firstName"}
               // value={loginInfo.email}
-              schema={{ ...register("firstName") }}
+              schema={{ ...register("first_name") }}
               required
               // callFunc={onChangeValue}
             />
           </div>
           <div className="formGroup">
-            {errors?.lastName?.message && (
-              <Error>{errors.lastName.message}</Error>
+            {errors?.last_name?.message && (
+              <Error>{errors.last_name.message}</Error>
             )}
             <Input
               type="text"
@@ -121,7 +127,7 @@ const RightScreen = () => {
               placeholder={"Last Name"}
               name={"Last Name"}
               // value={loginInfo.email}
-              schema={{ ...register("lastName") }}
+              schema={{ ...register("last_name") }}
               required
               // callFunc={onChangeValue}
             />

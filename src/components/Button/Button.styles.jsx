@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
     border: 1px solid #7f188f;
     box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
     border-radius: 8px;
-    font-family: "Outfit";
+    font-family: var(--font-1);
     font-style: normal;
     font-weight: 600;
     font-size: 16px;
@@ -27,7 +27,7 @@ export const Wrapper = styled.div`
     border: 1px solid #f6bcff;
     box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
     border-radius: 8px;
-    font-family: "Outfit";
+    font-family: var(--font-1);
     font-style: normal;
     font-weight: 600;
     font-size: 16px;

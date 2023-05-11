@@ -16,7 +16,7 @@ export const Wrapper = styled.div`
       &Title {
         text-align: center;
         h2 {
-          font-family: "GT Super Ds Trial", sans-serif;
+          font-family: var(--font-2);
           font-style: normal;
           font-weight: 500;
           font-size: 30px;
@@ -24,7 +24,7 @@ export const Wrapper = styled.div`
           color: #7f188f;
         }
         h3 {
-          font-family: "Outfit";
+          font-family: var(--font-1);
           font-style: normal;
           font-weight: 400;
           font-size: 20px;
@@ -53,7 +53,7 @@ export const Wrapper = styled.div`
         text-align: center;
 
         span {
-          font-family: "Outfit", sans-serif;
+          font-family: var(--font-1);
           font-style: normal;
           font-weight: 500;
           font-size: 14px;

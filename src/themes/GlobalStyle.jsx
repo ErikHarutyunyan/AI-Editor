@@ -1,4 +1,4 @@
-import styled, {createGlobalStyle} from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 
 export const Shape = styled.div`
   position: ${(props) => props?.position};
@@ -9,6 +9,20 @@ export const Shape = styled.div`
 `;
 
 export const GlobalStyle = createGlobalStyle`
+  :root {
+    --color-white: #FFFFFF;
+    --color-black: #000000;
+    --color-purple: #7F188F;
+    --color-lavender: #F6BCFF;
+    --color-pink: #D6BBFB;
+    --color-delight: rgba(253, 238, 255, 0.6);
+    --color-flintstone: #667085;
+    --fz-14: 14px;
+    --lh-24: 24px;
+    --font-1: "Outfit", sans-serif;
+    --font-2: "GT Super Ds Trial", sans-serif;
+  }
+  
   * {
     padding: 0;
     margin: 0;
@@ -44,7 +58,7 @@ export const GlobalStyle = createGlobalStyle`
     width: 100%;
     line-height: 1;
     font-size: 14px;
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-1);
   }
 
   button,
@@ -68,10 +82,14 @@ export const GlobalStyle = createGlobalStyle`
 
   a,
   a:visited {
+    display: inline-block;
+    all: unset;
     text-decoration: none;
+    cursor: pointer;
   }
 
   a:hover {
+    
     text-decoration: none;
   }
 
@@ -94,16 +112,5 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 
-  :root {
-    --color-white: #FFFFFF;
-    --color-black: #000000;
-    --color-purple: #7F188F;
-    --color-lavender: #F6BCFF;
-    --color-pink: #D6BBFB;
-    --color-delight: rgba(253, 238, 255, 0.6);
-    --color-flintstone: #667085;
-    --fz-14: 14px;
-    --lh-24: 24px;
-    --fs-Outfit: 'Outfit', serif;
-  }
+
 `;

@@ -22,7 +22,7 @@ export const CheckWrapper = styled.div`
   label {
     display: flex;
     align-items: center;
-    font-family: "Outfit", serif;
+    font-family: var(--font-1);
     font-style: normal;
     font-weight: 500;
     font-size: 14px;

@@ -18,6 +18,7 @@ const Forgot = () => {
           width={"auto"}
           height={"auto"}
           objectFit={"contain"}
+          loading={"lazy"}
         />
       </Shape>
       <ForgotPassword />

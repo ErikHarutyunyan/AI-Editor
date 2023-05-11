@@ -76,9 +76,9 @@ const LeftScreen = () => {
     //   );
     // }
     dispatch(userLogin(data));
-    TokenService.setUser(data);
+    // TokenService.setUser(data);
     // Demonstration
-    navigate(fromPage, { replace: true });
+    // navigate(fromPage, { replace: true });
   };
 
   // const onChangeValue = useCallback(
@@ -110,14 +110,15 @@ const LeftScreen = () => {
           width={"auto"}
           height={"auto"}
           objectFit={"contain"}
+          loading={"lazy"}
         />
       </Shape>
       <form onSubmit={handleSubmit(submitForm)}>
         <div className="formTitle">
           <h2>Welcome to Lethia</h2>
         </div>
-        {error && <Error>{error}</Error>}
-        {/*{errors && <Error msg={errors}/>}*/}
+        {/* {error && <Error>{error}</Error>}
+        {errors && <Error msg={errors}/>} */}
         <div className="formGroup">
           {errors?.email?.message && <Error>{errors.email.message}</Error>}
           <Input
@@ -186,6 +187,7 @@ const RightScreen = () => {
       width={"100%"}
       height={"100%"}
       objectFit={"cover"}
+      loading={"lazy"}
     />
   );
 };
