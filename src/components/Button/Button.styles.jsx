@@ -1,37 +1,53 @@
 import styled from "styled-components";
 export const Wrapper = styled.div`
-  width: 100%;
   text-align: ${(props) => props?.align};
-  .btnPurple {
-    max-width: ${(props) => props?.mW};
+  max-width: ${(props) => props?.mW};
+  width: 100%;
+  a {
+    display: inline-block;
     width: 100%;
-    background: #7f188f;
-    border: 1px solid #7f188f;
+  }
+  .blackWhite {
+    width: 100%;
+    border: 1px solid var(--color-black);
+    border-radius: 360px;
+    background: var(--color-white);
+    padding: ${(props) => (props?.paddings ? props.paddings : "12px 0px")};
+    transition: all 0.3s ease;
+  }
+  .btnPurple {
+    width: 100%;
+    background: var(--color-purple);
+    border: 1px solid var(--color-purple);
     box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
     border-radius: 8px;
-    font-family: var(--font-1);
-    font-style: normal;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 24px;
-    color: #ffffff;
-    padding: 10px 0px;
+    padding: ${(props) => (props?.paddings ? props.paddings : "12px 0px")};
     margin: 0 auto;
+    border-radius: 360px;
+    transition: all 0.3s ease;
   }
 
-  .btnWhite {
-    max-width: ${(props) => props?.mW};
+  .btnArrow {
     width: 100%;
-    padding: 10px 0;
-    background: #ffffff;
-    border: 1px solid #f6bcff;
-    box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
-    border-radius: 8px;
-    font-family: var(--font-1);
-    font-style: normal;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 24px;
-    color: #344054;
+    display: flex;
+    align-items: center;
+    padding: 10px 12px;
+    gap: 10px;
+    border-radius: 360px;
+    color: var(--color-white);
+    & > :first-child {
+      margin-left: auto;
+    }
+    & > :last-child {
+      margin-left: auto;
+    }
+  }
+
+  .btnPurpleArrow {
+    background: var(--color-purple);
+  }
+
+  .btnBlackArrow {
+    background: var(--color-black);
   }
 `;

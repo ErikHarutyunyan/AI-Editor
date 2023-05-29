@@ -6,7 +6,7 @@ const SplitScreen = ({
   rightWidth = 6,
   className = "",
   children = "",
-  h = "100vh",
+  h = "auto",
 }) => {
   const [left, right] = Children.toArray(children);
 

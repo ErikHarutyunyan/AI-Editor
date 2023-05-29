@@ -6,21 +6,33 @@ export const Shape = styled.div`
   left: ${(props) => props?.left};
   right: ${(props) => props?.right};
   bottom: ${(props) => props?.bottom};
+  z-index: ${(props) => props?.zIndex};
+`;
+
+export const MaxContainer = styled.div`
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
 `;
 
 export const GlobalStyle = createGlobalStyle`
   :root {
     --color-white: #FFFFFF;
+    --color-drWhite: #fafafa;
     --color-black: #000000;
-    --color-purple: #7F188F;
+    --color-lacquer: #3e3e3e;
+    --color-purple: #8C52FF;
     --color-lavender: #F6BCFF;
+    --color-lovely: #FEF1FD;
+    --color-patriarch: #830076;
     --color-pink: #D6BBFB;
     --color-delight: rgba(253, 238, 255, 0.6);
     --color-flintstone: #667085;
+    --color-eggplant: #320434;
     --fz-14: 14px;
     --lh-24: 24px;
-    --font-1: "Outfit", sans-serif;
-    --font-2: "GT Super Ds Trial", sans-serif;
+    --font-1: 'Poppins', sans-serif;
+    --font-2: 'League Spartan', sans-serif;
   }
   
   * {
@@ -57,7 +69,7 @@ export const GlobalStyle = createGlobalStyle`
     height: 100%;
     width: 100%;
     line-height: 1;
-    font-size: 14px;
+    font-size: 16px;
     font-family: var(--font-1);
   }
 
@@ -112,5 +124,26 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 
+  #root{
+    width: 100%;
+    height: 100%;
+  }
 
+  main{
+    width: 100%;
+    height: 100%;
+  }
+
+ .slick-arrow:before{
+    content: none;
+  }
+
+  
+  .cB{
+    color: var(--color-black);
+  }
+
+  .cP{
+    color: var(--color-purple);
+  }
 `;
