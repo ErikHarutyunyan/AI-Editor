@@ -52,6 +52,17 @@ import spotifyLogo from "../../assets/images/spotifyLogo.png";
 import groupCapsule from "../../assets/images/groupCapsule.png";
 import shadow from "../../assets/images/shadow.png";
 import capsula2 from "../../assets/images/capsula2.png";
+import addText from "../../assets/images/addText.png";
+import resize from "../../assets/images/resize.png";
+import trim from "../../assets/images/trim.png";
+import video from "../../assets/images/video.png";
+import play from "../../assets/images/play.png";
+import creditStar from "../../assets/images/creditStar.png";
+import creditOneHome from "../../assets/images/creditOneHome.png";
+import creditStar2 from "../../assets/images/creditStar2.png";
+import creditStar3 from "../../assets/images/creditStar3.png";
+import artwok from "../../assets/images/artwok.png";
+import mVideo from "../../assets/images/mVideo.png";
 
 export {
   bgAuth,
@@ -108,4 +119,15 @@ export {
   groupCapsule,
   shadow,
   capsula2,
+  addText,
+  resize,
+  trim,
+  video,
+  play,
+  creditStar,
+  creditOneHome,
+  creditStar2,
+  creditStar3,
+  artwok,
+  mVideo,
 };

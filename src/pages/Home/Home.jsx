@@ -1,17 +1,28 @@
 import React from "react";
 import {
+  addText,
   arrowBig,
+  artwok,
   capsula2,
   capsule,
+  creditOneHome,
+  creditStar,
+  creditStar2,
+  creditStar3,
   lyricsPromo1,
   lyricsPromo2,
+  mVideo,
   mVideo1,
   mVideo2,
   oicture,
+  play,
+  resize,
   shadow,
   spotCanvas,
   spotifyLogo,
+  trim,
   trustpilotLogo,
+  video,
   visual1,
   visual2,
   visul1,
@@ -36,6 +47,8 @@ import { ImgWrapper } from "../../components/Image/Image.styles";
 import SlickSlider from "../../components/SlickSlider";
 import { partnersLogo } from "../../constant/sliderItemInfo";
 import { sliderSettingsLogo } from "../../constant/sliderSettings";
+import CardCredit from "./../../components/CardCredit/index";
+import Marquee from "../../components/Marquee/Marquee";
 
 const Home = () => {
   return (
@@ -320,7 +333,7 @@ const Home = () => {
             <ImgWrapper src={capsula2} />
           </Shape>
         </Section>
-        <Section className="why">
+        <Section className="features">
           <div className="info">
             <Button mW="218px" className="blackWhite" title="Features" />
             <div className="title">
@@ -334,8 +347,196 @@ const Home = () => {
               </p>
             </div>
           </div>
+          <div className="toolsWrapper">
+            <div className="tools">
+              <ImgWrapper src={addText} className="imgTool" />
+              <h3>Add Text.</h3>
+              <p>Add text or promotional messaging throughout your video</p>
+            </div>
+            <div className="tools">
+              <ImgWrapper src={resize} className="imgTool" />
+              <h3>Resize</h3>
+              <p>
+                Let us handle resizing your videos so your artists look great on
+                every platform
+              </p>
+            </div>
+            <div className="tools">
+              <ImgWrapper src={trim} className="imgTool" />
+              <h3>Trim</h3>
+              <p>
+                Turn your music videos into promo and Spotify canvas videos in
+                seconds
+              </p>
+            </div>
+          </div>
+          <div className="started">
+            <Button mW="196px" className="btnArrow btnBlackArrow" to="register">
+              <span>Get Started</span>
+              <Icon name="arrowCircleBlack" />
+            </Button>
+          </div>
+        </Section>
+        <Section className="creativesVideo">
+          <div className="info">
+            <Button mW="218px" className="blackWhite" title="Showcase" />
+            <div className="title">
+              <span className="cB">creatives </span>
+              <span className="cP">made by </span>
+              <span className="cB">Lethia.</span>
+            </div>
+            <div className="desc">
+              <p className="cB">Some of our designs - all made in seconds.</p>
+            </div>
+          </div>
+          <div className="videoBoxWrapper">
+            <div className="videoBox">
+              <ImgWrapper src={video} />
+              <ImgWrapper src={play} className="playBtn" />
+            </div>
+            <div className="videoBox">
+              <ImgWrapper src={video} />
+              <ImgWrapper src={play} className="playBtn" />
+            </div>
+            <div className="videoBox">
+              <ImgWrapper src={video} />
+              <ImgWrapper src={play} className="playBtn" />
+            </div>
+            <div className="videoBox">
+              <ImgWrapper src={video} />
+              <ImgWrapper src={play} className="playBtn" />
+            </div>
+            <div className="videoBox">
+              <ImgWrapper src={video} />
+              <ImgWrapper src={play} className="playBtn" />
+            </div>
+            <div className="videoBox">
+              <ImgWrapper src={video} />
+              <ImgWrapper src={play} className="playBtn" />
+            </div>
+            <div className="videoBox">
+              <ImgWrapper src={video} />
+              <ImgWrapper src={play} className="playBtn" />
+            </div>
+            <div className="videoBox">
+              <ImgWrapper src={video} />
+              <ImgWrapper src={play} className="playBtn" />
+            </div>
+            <div className="videoBox">
+              <ImgWrapper src={video} />
+              <ImgWrapper src={play} className="playBtn" />
+            </div>
+            <div className="videoBox">
+              <ImgWrapper src={video} />
+              <ImgWrapper src={play} className="playBtn" />
+            </div>
+          </div>
+          <div className="started">
+            <Button mW="196px" className="btnArrow btnBlackArrow" to="register">
+              <span>Get Started</span>
+              <Icon name="arrowCircleBlack" />
+            </Button>
+          </div>
+        </Section>
+        <Section className="price">
+          <div className="info">
+            <Button mW="218px" className="blackWhite" title="Pricing" />
+            <div className="title">
+              <span className="cB">creatives on </span>
+              <span className="cP">demand.</span>
+            </div>
+            <div className="desc">
+              <p className="cB">Choose your credits. Create when you want.</p>
+            </div>
+          </div>
+          <div className="creditCardWrapper">
+            <div className="creditCard creditCard-one">
+              <div className="creditCardHeader">
+                <div className="star">
+                  <ImgWrapper src={creditStar} />
+                </div>
+                <div className="count">1 Credit</div>
+              </div>
+              <div className="creditCardBody">
+                <ImgWrapper src={creditOneHome} />
+              </div>
+              <div className="creditFooter">
+                <div className="title">
+                  <h3>Short Video</h3>
+                </div>
+                <div className="options">
+                  <div className="option">
+                    <Icon name="checkWhite" />
+                    <span>Spotify Canvas</span>
+                  </div>
+                  <div className="option">
+                    <Icon name="checkWhite" />
+                    <span>Videos under 1 minute</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="creditCard creditCard-two">
+              <div className="creditCardHeader">
+                <div className="star">
+                  <ImgWrapper src={creditStar2} />
+                </div>
+                <div className="count">2 Credit</div>
+              </div>
+              <div className="creditCardBody">
+                <ImgWrapper src={artwok} />
+              </div>
+              <div className="creditFooter">
+                <div className="title">
+                  <h3>Artwork</h3>
+                </div>
+                <div className="options">
+                  <div className="option">
+                    <Icon name="checkWhite" />
+                    <span>Album Artwork</span>
+                  </div>
+                  <div className="option">
+                    <Icon name="checkWhite" />
+                    <span>Visualizers</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="creditCard creditCard-tree">
+              <div className="creditCardHeader">
+                <div className="star">
+                  <ImgWrapper src={creditStar3} />
+                </div>
+                <div className="count">1 Credit</div>
+              </div>
+              <div className="creditCardBody">
+                <ImgWrapper src={mVideo} />
+              </div>
+              <div className="creditFooter">
+                <div className="title">
+                  <h3>Music Videos</h3>
+                </div>
+                <div className="options">
+                  <div className="option">
+                    <Icon name="checkWhite" />
+                    <span>Lyric Videos</span>
+                  </div>
+                  <div className="option">
+                    <Icon name="checkWhite" />
+                    <span>Promo Videos</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <CardCredit count="5" price="39" sale="49" per="7.80" />
+            <CardCredit count="10" price="69" sale="49" per="6.90" />
+            <CardCredit count="15" price="99" sale="49" per="6.60" />
+            <CardCredit count="20" price="129" sale="149" per="6.90" />
+            <CardCredit count="25" price="149" sale="179" per="6.60" />
+          </div>
         </Section>
       </MaxContainer>
+      <Marquee text="JOIN 100+BRANDS" className="marq"/>
     </HomeWrapper>
   );
 };
