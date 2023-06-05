@@ -1,4 +1,6 @@
 import styled from "styled-components";
+
+
 export const Wrapper = styled.div`
   background: rgb(90, 111, 251);
   background: linear-gradient(

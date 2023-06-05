@@ -9,6 +9,18 @@ export const Shape = styled.div`
   z-index: ${(props) => props?.zIndex};
 `;
 
+export const AnimationUpDown = styled.div`
+  animation: mover ${(props) => props?.second} infinite alternate;
+  @keyframes mover {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(${(props) => props?.down});
+    }
+  }
+`;
+
 export const MaxContainer = styled.div`
   max-width: 1440px;
   width: 100%;
@@ -26,9 +38,11 @@ export const GlobalStyle = createGlobalStyle`
     --color-lovely: #FEF1FD;
     --color-patriarch: #830076;
     --color-pink: #D6BBFB;
-    --color-delight: rgba(253, 238, 255, 0.6);
+    --color-delight: #fdeeff99;
     --color-flintstone: #667085;
+    --color-orochimaru: #D9D9D9;
     --color-eggplant: #320434;
+    --color-delighted: #2B192F;
     --fz-14: 14px;
     --lh-24: 24px;
     --font-1: 'Poppins', sans-serif;
@@ -129,10 +143,10 @@ export const GlobalStyle = createGlobalStyle`
     height: 100%;
   }
 
-  main{
+  /* main{
     width: 100%;
     height: 100%;
-  }
+  } */
 
  .slick-arrow:before{
     content: none;
@@ -145,5 +159,8 @@ export const GlobalStyle = createGlobalStyle`
 
   .cP{
     color: var(--color-purple);
+  }
+  .cW {
+    color: var(--color-white)
   }
 `;

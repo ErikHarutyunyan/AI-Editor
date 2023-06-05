@@ -1,13 +1,13 @@
 import React from "react";
 // Styles
 import { Wrapper } from "./Marquee.styles";
-const Marquee = ({ text }) => {
+const Marquee = ({ text, className = "" }) => {
   return (
-    <Wrapper>
-      <div class="marquee">
-        <div class="track">
+    <Wrapper className={className}>
+      <div className="marquee">
+        <div className="track">
           {[...new Array(20)].map((item, index) => (
-            <div class="content">
+            <div className="content" key={index}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="6"

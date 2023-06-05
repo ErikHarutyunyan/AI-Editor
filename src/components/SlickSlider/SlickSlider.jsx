@@ -12,37 +12,50 @@ const SlickSlider = ({
   slideItems = [],
   type = "",
   className = "",
+  children,
 }) => {
   const [loadedSlides, setLoadedSlides] = useState([]);
-
+  const checkChildren = children !== undefined;
+  console.log("checkChildren :", checkChildren);
   useEffect(() => {
-    const fetchSlides = async () => {
-      try {
-        const response = await fetch("/api/slides");
-        const data = await response.json();
-        setLoadedSlides(data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
+    if (checkChildren) {
+      const fetchSlides = async () => {
+        try {
+          const response = await fetch("/api/slides");
+          const data = await response.json();
+          setLoadedSlides(data);
+        } catch (error) {
+          // console.error(error);
+        }
+      };
 
-    if (slides.length === 0) {
-      fetchSlides();
-    } else {
-      setLoadedSlides(slides);
+      if (slides.length === 0) {
+        fetchSlides();
+      } else {
+        setLoadedSlides(slides);
+      }
     }
-  }, [slides]);
+  }, [checkChildren, slides]);
 
   const renderedSlides = useMemo(() => {
     const slidesToRender = slideItems.length > 0 ? slideItems : loadedSlides;
-    return slidesToRender.map((slide) => (
-      <SlidesRender slide={slide} type={type} />
+    return slidesToRender.map((slide, index) => (
+      <SlidesRender slide={slide} type={type} key={index} />
     ));
   }, [slideItems, loadedSlides, type]);
 
   const sliderSettings =
     Object.keys(settings).length > 0 ? settings : sliderSettingsDefault;
-  // console.log("sliderSettings :", sliderSettings);
+
+  if (children !== undefined) {
+    return (
+      <Slider className={className} {...sliderSettings}>
+        {React.Children.map(children, (child, index) => (
+          <div key={index}>{child}</div>
+        ))}
+      </Slider>
+    );
+  }
 
   return (
     <Slider className={className} {...sliderSettings}>

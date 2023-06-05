@@ -28,3 +28,15 @@ export const sliderSettingsLogo = {
   arrows: false,
   buttons: false,
 };
+
+export const sliderSettingsReviews = Object.freeze({
+  dots: true,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  lazyLoad: true,
+  arrows: true,
+  prevArrow: <LogoPrevArrow />,
+  nextArrow: <LogoNextArrow />,
+});

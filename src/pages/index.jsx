@@ -6,7 +6,8 @@ import Register from "./Register";
 import NotFoundPage from "./NotFoundPage";
 import ErrorPage from "./ErrorPage";
 import Forgot from "./Forgot";
-
+import Pricing from "./Pricing";
+import Video from "./Video";
 export {
   Home,
   About,
@@ -17,4 +18,6 @@ export {
   NotFoundPage,
   ErrorPage,
   Forgot,
+  Pricing,
+  Video,
 };

@@ -1,28 +1,26 @@
-import React from 'react'
-import {NavLink, Outlet, ScrollRestoration} from "react-router-dom"
-import { ABOUT, BLOG, HOME } from '../router/route-path';
-import Header from './../components/Header';
-const Layout = () => {
+import React from "react";
+import { Outlet, ScrollRestoration } from "react-router-dom";
 
-   let getKey = React.useCallback(
-    (location, matches) => {
-      let match = matches.find((m) => (m.handle)?.scrollMode);
-      if ((match?.handle)?.scrollMode === "pathname") {
-        return location.pathname;
-      }
-      return location.key;
-    },
-    []
-  );
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+const Layout = () => {
+  let getKey = React.useCallback((location, matches) => {
+    let match = matches.find((m) => m.handle?.scrollMode);
+    if (match?.handle?.scrollMode === "pathname") {
+      return location.pathname;
+    }
+    return location.key;
+  }, []);
   return (
     <>
-      <Header/>
+      <Header />
       <main>
         <Outlet />
       </main>
       <ScrollRestoration getKey={getKey} />
+      <Footer />
     </>
   );
-}
+};
 
-export default Layout
+export default Layout;

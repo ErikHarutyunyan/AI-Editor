@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Wrapper = styled.section`
+export const Wrapper = styled.div`
   display: flex;
   width: 100%;
   height: ${(props) => props?.h};

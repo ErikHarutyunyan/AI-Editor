@@ -7,7 +7,15 @@ import {
 } from "react-router-dom";
 // import PrivateRouter from './PrivateRouter'
 import { Layout, LayoutFullScreen } from "../layout/index.jsx";
-import { ABOUT, BLOG, HOME, NOT_FOUND_PAGE, SINGLE_BLOG } from "./route-path";
+import {
+  ABOUT,
+  BLOG,
+  HOME,
+  NOT_FOUND_PAGE,
+  SINGLE_BLOG,
+  PRICING,
+  VIDEO,
+} from "./route-path";
 import TokenService from "../services/token.service";
 // Pages
 import {
@@ -19,10 +27,11 @@ import {
   NotFoundPage,
   Register,
   SingleBlog,
-  Forgot
+  Forgot,
+  Pricing,
+  Video,
 } from "../pages";
 import PrivateRouter from "./PrivateRouter";
-
 
 const user = TokenService.getUser() || null;
 const router = createBrowserRouter(
@@ -55,7 +64,8 @@ const router = createBrowserRouter(
           }
           errorElement={<ErrorPage />}
         />
-
+        <Route path={PRICING} element={<Pricing />} />
+        <Route path={VIDEO} element={<Video />} />
         {/* <Route
           path="/profile"
           element={

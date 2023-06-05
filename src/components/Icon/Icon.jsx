@@ -5,7 +5,8 @@ import useDynamicSVGImport from "../../hooks/useDynamicSVGImport";
 
 const Icon = memo(({ name, ...rest }) => {
   const handleIconCompleted = useCallback(
-    (iconName) => console.log(`${iconName} successfully loaded`),
+    (iconName) => true,
+    // console.log(`${iconName} successfully loaded`)
     []
   );
   const handleIconError = useCallback((err) => console.error(err.message), []);

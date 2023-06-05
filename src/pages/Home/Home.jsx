@@ -46,9 +46,14 @@ import { ImgWrapper } from "../../components/Image/Image.styles";
 
 import SlickSlider from "../../components/SlickSlider";
 import { partnersLogo } from "../../constant/sliderItemInfo";
-import { sliderSettingsLogo } from "../../constant/sliderSettings";
+import {
+  sliderSettingsLogo,
+  sliderSettingsReviews,
+} from "../../constant/sliderSettings";
 import CardCredit from "./../../components/CardCredit/index";
 import Marquee from "../../components/Marquee/Marquee";
+import ReviewCard from "../../components/ReviewCard/ReviewCard";
+import Accordion from "../../components/Accordion";
 
 const Home = () => {
   return (
@@ -287,8 +292,8 @@ const Home = () => {
           <div className="info">
             <Button mW="218px" className="blackWhite" title="Why Lethia?" />
             <div className="title">
-              <span className="cB">ceatives on </span>
-              <span className="cP">demond.</span>
+              <span className="cB">create with</span>
+              <span className="cP">ease.</span>
             </div>
             <div className="desc">
               <p className="cB">
@@ -536,7 +541,96 @@ const Home = () => {
           </div>
         </Section>
       </MaxContainer>
-      <Marquee text="JOIN 100+BRANDS" className="marq"/>
+      <div className="banner">
+        <div className="bannerWrapper">
+          <p>
+            Join <span>100+</span> brands & <span>1,000,000</span> users
+            worldwide using Lethia
+          </p>
+          <Button mW="196px" className="btnArrow btnBlackArrow" to="register">
+            <span>Get Started</span>
+            <Icon name="arrowCircleBlack" />
+          </Button>
+        </div>
+      </div>
+      <MaxContainer>
+        <Section className="review">
+          <SlickSlider
+            settings={sliderSettingsReviews}
+            className="reviewSlides">
+            <ReviewCard />
+            <ReviewCard />
+            <ReviewCard />
+            <ReviewCard />
+          </SlickSlider>
+          <div className="trustWrapper">
+            <ImgWrapper
+              src={trustpilotLogo}
+              loading={"lazy"}
+              objectFit={"cover"}
+            />
+          </div>
+        </Section>
+        <Section className="faqs">
+          <div className="info">
+            <Button mW="218px" className="blackWhite" title="FAQs" />
+            <div className="title">
+              <span className="cB">some </span>
+              <span className="cP">frequently </span>
+              <span className="cB">asked questions.</span>
+            </div>
+          </div>
+          <div className="faqsAccordion">
+            <Accordion title="How does Lethia work?" className="accFaqs">
+              <div className="content">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque
+                ratione veritatis possimus iste reiciendis reprehenderit
+                nostrum, hic exercitationem, et aspernatur aut deserunt. Soluta
+                esse non perferendis itaque explicabo dolor suscipit.
+              </div>
+            </Accordion>
+            <Accordion title="How does Lethia work?" className="accFaqs">
+              <div className="content">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque
+                ratione veritatis possimus iste reiciendis reprehenderit
+                nostrum, hic exercitationem, et aspernatur aut deserunt. Soluta
+                esse non perferendis itaque explicabo dolor suscipit.
+              </div>
+            </Accordion>
+            <Accordion title="How does Lethia work?" className="accFaqs">
+              <div className="content">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque
+                ratione veritatis possimus iste reiciendis reprehenderit
+                nostrum, hic exercitationem, et aspernatur aut deserunt. Soluta
+                esse non perferendis itaque explicabo dolor suscipit.
+              </div>
+            </Accordion>
+            <Accordion title="How does Lethia work?" className="accFaqs">
+              <div className="content">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque
+                ratione veritatis possimus iste reiciendis reprehenderit
+                nostrum, hic exercitationem, et aspernatur aut deserunt. Soluta
+                esse non perferendis itaque explicabo dolor suscipit.
+              </div>
+            </Accordion>
+            <Accordion title="How does Lethia work?" className="accFaqs">
+              <div className="content">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque
+                ratione veritatis possimus iste reiciendis reprehenderit
+                nostrum, hic exercitationem, et aspernatur aut deserunt. Soluta
+                esse non perferendis itaque explicabo dolor suscipit.
+              </div>
+            </Accordion>
+          </div>
+          <div className="started">
+            <Button mW="196px" className="btnArrow btnBlackArrow" to="register">
+              <span>Get Started</span>
+              <Icon name="arrowCircleBlack" />
+            </Button>
+          </div>
+        </Section>
+      </MaxContainer>
+      <Marquee text="JOIN 100+BRANDS" className="marq" />
     </HomeWrapper>
   );
 };

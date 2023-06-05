@@ -1,7 +1,15 @@
 import styled from "styled-components";
+import useMediaQuery from "./../../hooks/useMediaQuery";
 
 export const HeaderWrapper = styled.header`
-  background: var(--color-white);
+  position: relative;
+  background: ${(props) =>
+    props.page === "pricing"
+      ? `#2B192F`
+      : props.page === "videos"
+      ? `#150C17`
+      : "white"};
+  overflow: hidden;
 `;
 
 export const Wrapper = styled.div`
@@ -24,7 +32,14 @@ export const Wrapper = styled.div`
         font-weight: 400;
         font-size: 1rem;
         line-height: 1.5rem;
-        color: var(--color-black);
+        color: ${(props) =>
+          props.page !== "" ? `var(--color-white)` : `var(--color-black)`};
+        background-color: ${(props) =>
+          props.page !== "" ? `transparent` : `var(--color-white)`};
+
+        border: 1px solid
+          ${(props) =>
+            props.page !== "" ? `var(--color-white)` : `var(--color-black)`};
       }
       .btnPurple {
         font-family: "Poppins";
@@ -41,10 +56,16 @@ export const Wrapper = styled.div`
     max-height: 6.5rem;
     width: 100%;
     height: 100%;
+    .trnsLogo {
+      padding: 27px 0px;
+      width: auto;
+      height: auto;
+    }
     a {
       display: block;
       width: 100%;
       height: 100%;
+      cursor: pointer;
       img {
         width: 100%;
         height: 100%;
@@ -102,7 +123,8 @@ export const NavItem = styled.li`
       font-weight: 400;
       font-size: 1.125rem;
       line-height: 1.6875rem;
-      color: var(--color-black);
+      color: ${(props) =>
+        props.page !== "" ? `var(--color-white)` : `var(--color-black)`};
       border-bottom: 0.0625rem solid transparent;
       transition: all 0.3s ease;
       padding: 0.3125rem 0rem;

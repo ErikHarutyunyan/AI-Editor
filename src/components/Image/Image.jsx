@@ -63,8 +63,24 @@ import creditStar2 from "../../assets/images/creditStar2.png";
 import creditStar3 from "../../assets/images/creditStar3.png";
 import artwok from "../../assets/images/artwok.png";
 import mVideo from "../../assets/images/mVideo.png";
+import bannerP from "../../assets/images/bannerP.png";
+import reviewImg from "../../assets/images/reviewImg.jpg";
+import line from "../../assets/images/line.png";
+import footerLogo from "../../assets/images/footerLogo.png";
+import transparentLogo from "../../assets/images/pricingLogo.png";
+import pricingShape from "../../assets/images/pricingShape.png";
+import pricingShape2 from "../../assets/images/pricingShape2.png";
+import videoBanner from "../../assets/images/videoBanner.png";
+import videoBannerBg from "../../assets/images/videoBannerBg.png";
+import shapeVideoBanner from "../../assets/images/shapeVideoBanner.png";
 
 export {
+  shapeVideoBanner,
+  videoBannerBg,
+  videoBanner,
+  pricingShape2,
+  pricingShape,
+  transparentLogo,
   bgAuth,
   shape1,
   shapeReg1,
@@ -130,4 +146,8 @@ export {
   creditStar3,
   artwok,
   mVideo,
+  bannerP,
+  reviewImg,
+  line,
+  footerLogo,
 };
