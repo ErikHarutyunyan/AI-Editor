@@ -6,15 +6,20 @@ import { AnimationUpDown, MaxContainer, Shape } from "../../themes/GlobalStyle";
 import Icon from "../../components/Icon";
 import Button from "../../components/Button";
 import { ImgWrapper } from "../../components/Image/Image.styles";
-import { shapeVideoBanner, videoBanner } from "../../components/Image/Image";
+import {
+  shapeVideoBanner,
+  videoBanner,
+  videoOptionsItemImg,
+} from "../../components/Image/Image";
 import SlickSlider from "../../components/SlickSlider";
-import { partnersLogo } from "../../constant/sliderItemInfo";
+import { partnersLogo, partnersLogoWhite } from "../../constant/sliderItemInfo";
 import { sliderSettingsLogo } from "../../constant/sliderSettings";
+import Marquee from "../../components/Marquee/Marquee";
 const Video = () => {
   return (
     <VideoWrapper>
-      <MaxContainer>
-        <Section className="banner">
+      <Section className="banner">
+        <MaxContainer>
           <SplitScreen className="split">
             <div className="videoClipsInfo">
               <div className="title">
@@ -44,11 +49,11 @@ const Video = () => {
                 <Button
                   mW="180px"
                   className="btnArrow btnPurpleArrow"
-                  to="register">
+                  to="/register">
                   <span>Get Started</span>
                   <Icon name="arrCirclePurple" />
                 </Button>
-                <Button mW="180px" className="btnArrow btnWhite" to="pricing">
+                <Button mW="180px" className="btnArrow btnWhite" to="/pricing">
                   <span>Pricing</span>
                   <Icon name="arrowCircleWhite" />
                 </Button>
@@ -64,14 +69,71 @@ const Video = () => {
           </SplitScreen>
           <SlickSlider
             className="logoSlide"
-            slideItems={partnersLogo}
+            slideItems={partnersLogoWhite}
             settings={sliderSettingsLogo}
           />
+        </MaxContainer>
+        <Shape position="absolute" bottom="0" right="0">
+          <ImgWrapper src={shapeVideoBanner} />
+        </Shape>
+      </Section>
+      <MaxContainer>
+        <Section className="videoOptions">
+          <div className="videoOptionsSort">
+            <p>Sort By Popular</p>
+          </div>
+          <div className="videoOptionsWrapper">
+            <div className="videoOptionsFilters">
+              <button className="filter">Browse</button>
+              <button className="filter">Technical</button>
+              <button className="filter">Categories</button>
+            </div>
+
+            <div className="videoOptionsContainer">
+              <div className="videoOptionItem">
+                <ImgWrapper src={videoOptionsItemImg} />
+              </div>
+              <div className="videoOptionItem">
+                <ImgWrapper src={videoOptionsItemImg} />
+              </div>
+              <div className="videoOptionItem">
+                <ImgWrapper src={videoOptionsItemImg} />
+              </div>
+              <div className="videoOptionItem">
+                <ImgWrapper src={videoOptionsItemImg} />
+              </div>
+              <div className="videoOptionItem">
+                <ImgWrapper src={videoOptionsItemImg} />
+              </div>
+              <div className="videoOptionItem">
+                <ImgWrapper src={videoOptionsItemImg} />
+              </div>
+              <div className="videoOptionItem">
+                <ImgWrapper src={videoOptionsItemImg} />
+              </div>
+              <div className="videoOptionItem">
+                <ImgWrapper src={videoOptionsItemImg} />
+              </div>
+              <div className="videoOptionItem">
+                <ImgWrapper src={videoOptionsItemImg} />
+              </div>
+              <div className="videoOptionItem">
+                <ImgWrapper src={videoOptionsItemImg} />
+              </div>
+              <div className="videoOptionItem">
+                <ImgWrapper src={videoOptionsItemImg} />
+              </div>
+              <div className="videoOptionItem">
+                <ImgWrapper src={videoOptionsItemImg} />
+              </div>
+            </div>
+          </div>
+          <div className="videoOptionsLoad">
+            <button>Load more</button>
+          </div>
         </Section>
       </MaxContainer>
-      <Shape position="absolute" bottom="0" right="0">
-        <ImgWrapper src={shapeVideoBanner} />
-      </Shape>
+      <Marquee text="JOIN 100+BRANDS" className="marq" />
     </VideoWrapper>
   );
 };

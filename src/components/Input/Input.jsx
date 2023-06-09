@@ -41,7 +41,8 @@ const Input = ({
             // onChange={callFunc}
             aria-label="check"
           />
-          {text}
+
+          <span>{text}</span>
         </label>
       </CheckWrapper>
     );

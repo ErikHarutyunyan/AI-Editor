@@ -6,7 +6,15 @@ import useMediaQuery from "../../hooks/useMediaQuery";
 // Components
 import SplitScreen from "../../components/SplitScreen/SplitScreen";
 import { ImgWrapper } from "../../components/Image/Image.styles";
-import { bgAuth, shapeReg1, shapeReg2 } from "../../components/Image/Image";
+import {
+  bgAuth,
+  regImage3,
+  regImage4,
+  shapeReg1,
+  shapeReg2,
+  visual1,
+  visual2,
+} from "../../components/Image/Image";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { schema_signUp } from "../../utils/authShema";
@@ -18,18 +26,61 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { size } from "../../themes/Breakpoints";
 import { useDispatch, useSelector } from "react-redux";
 import { registerUser } from "../../app/features/user/userActions";
-import { Shape } from "../../themes/GlobalStyle";
+import { AnimationUpDown, Shape } from "../../themes/GlobalStyle";
+import Icon from "../../components/Icon";
 
 const LeftScreen = () => {
   return (
-    <ImgWrapper
-      src={bgAuth}
-      alt="bgAuth"
-      width={"100%"}
-      height={"100%"}
-      objectFit={"cover"}
-      loading={"lazy"}
-    />
+    <div className="leftWrapper">
+      <div className="leftContent">
+        <div className="title">
+          <h2>give your music the art it deserves.</h2>
+        </div>
+        <div className="sbuTitle">
+          <h3>Unleash creativity with Lethia.</h3>
+        </div>
+        <div className="options">
+          <div className="optionsWrapper">
+            <Icon name={"checkPurple"} />
+            <span>Spotify Canvas</span>
+          </div>
+          <div className="optionsWrapper">
+            <Icon name={"checkPurple"} />
+            <span>Music Videos</span>
+          </div>
+          <div className="optionsWrapper">
+            <Icon name={"checkPurple"} />
+            <span>Lyric Videos</span>
+          </div>
+          <div className="optionsWrapper">
+            <Icon name={"checkPurple"} />
+            <span>Visualizers</span>
+          </div>
+        </div>
+        <div className="imgsWrapper">
+          <AnimationUpDown second="1s" down="10px">
+            <Shape position="relative">
+              <ImgWrapper src={visual2} />
+            </Shape>
+          </AnimationUpDown>
+          <AnimationUpDown second="1.2s" down="12px">
+            <Shape position="relative" top="51px" left="-20px">
+              <ImgWrapper src={visual1} />
+            </Shape>
+          </AnimationUpDown>
+          <AnimationUpDown second="1.4s" down="14px">
+            <Shape position="relative" left="-30px">
+              <ImgWrapper src={regImage3} />
+            </Shape>
+          </AnimationUpDown>
+          <AnimationUpDown second="1.6s" down="16px">
+            <Shape position="relative" top="51px" left="-40px">
+              <ImgWrapper src={regImage4} />
+            </Shape>
+          </AnimationUpDown>
+        </div>
+      </div>
+    </div>
   );
 };
 const RightScreen = () => {
@@ -76,30 +127,29 @@ const RightScreen = () => {
   // }, [navigate, userInfo]);
   return (
     <Wrapper>
-      <Shape position={"absolute"} right={"0"} top={"0px"}>
-        <ImgWrapper
-          src={shapeReg1}
-          alt="bgAuth"
-          width={"auto"}
-          height={"auto"}
-          objectFit={"contain"}
-          loading={"lazy"}
-        />
-      </Shape>
-      <Shape position={"absolute"} left={"0"} bottom={"0px"}>
-        <ImgWrapper
-          src={shapeReg2}
-          alt="bgAuth"
-          width={"auto"}
-          height={"auto"}
-          objectFit={"contain"}
-          loading={"lazy"}
-        />
-      </Shape>
       <form onSubmit={handleSubmit(submitForm)}>
         <div className="formTitle">
-          <h2>Welcome to Lethia</h2>
-          <h3>Reach more fans with stunning video content</h3>
+          <h2>Create Account</h2>
+        </div>
+        <div className="regSocial">
+          <button className="btnSocial">
+            <Icon name="google" width="32px" height="32px" />
+            Sign up with Google
+          </button>
+          <button className="btnSocial">
+            <Icon
+              name="facebook"
+              className="socialIcon"
+              width="32px"
+              height="32px"
+            />
+            Sign up with Facebook
+          </button>
+        </div>
+        <div className="or">
+          <div className="line"></div>
+          <p>OR</p>
+          <div className="line"></div>
         </div>
         <div className="formWrapper">
           <div className="formGroup">
@@ -167,12 +217,12 @@ const RightScreen = () => {
             className="btnPurple"
             disabled={loading}
             title={"Sign up"}
-            mW={"268px"}
+            mW={"100%"}
             align="center"
           />
           <div className="formAsk">
             <span>Already have an account? </span>
-            <Link to="/login">Login</Link>
+            <Link to="/login">Sign In</Link>
           </div>
         </div>
       </form>
@@ -184,7 +234,7 @@ const Register = () => {
   const isDesktop = useMediaQuery(`(min-width: ${size.tablet})`);
   return (
     <Wrapper>
-      <SplitScreen leftWidth={isDesktop ? 5 : 0} rightWidth={6} h={"100vh"}>
+      <SplitScreen leftWidth={isDesktop ? 6 : 0} rightWidth={6} h={"100vh"}>
         <LeftScreen />
         <RightScreen />
       </SplitScreen>

@@ -137,7 +137,9 @@ export const GlobalStyle = createGlobalStyle`
     font-weight: inherit;
     box-sizing: border-box;
   }
-
+ button {
+            background: none;
+          }
   #root{
     width: 100%;
     height: 100%;

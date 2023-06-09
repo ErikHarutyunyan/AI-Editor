@@ -11,6 +11,17 @@ import {
   partnetLogo7,
   partnetLogo8,
   partnetLogo9,
+  pL1,
+  pL2,
+  pL3,
+  pL4,
+  pL5,
+  pL6,
+  pL7,
+  pL8,
+  pL9,
+  pL10,
+  pL11,
 } from "../components/Image/Image";
 
 export const partnersLogo = Object.freeze([
@@ -89,6 +100,87 @@ export const partnersLogo = Object.freeze([
     className: "partnersLogo",
     src: partnetLogo11,
     alt: "partnetLogo11",
+    link: "/",
+  },
+]);
+
+
+export const partnersLogoWhite = Object.freeze([
+  {
+    id: uuidv4(),
+    className: "partnersLogo",
+    src: pL1,
+    alt: "pL1",
+    link: "/",
+  },
+  {
+    id: uuidv4(),
+    className: "partnersLogo",
+    src: pL2,
+    alt: "pL2",
+    link: "/",
+  },
+  {
+    id: uuidv4(),
+    className: "partnersLogo",
+    src: pL3,
+    alt: "pL3",
+    link: "/",
+  },
+  {
+    id: uuidv4(),
+    className: "partnersLogo",
+    src: pL4,
+    alt: "pL4",
+    link: "/",
+  },
+  {
+    id: uuidv4(),
+    className: "partnersLogo",
+    src: pL5,
+    alt: "pL5",
+    link: "/",
+  },
+  {
+    id: uuidv4(),
+    className: "partnersLogo",
+    src: pL6,
+    alt: "pL6",
+    link: "/",
+  },
+  {
+    id: uuidv4(),
+    className: "partnersLogo",
+    src: pL7,
+    alt: "pL7",
+    link: "/",
+  },
+  {
+    id: uuidv4(),
+    className: "partnersLogo",
+    src: pL8,
+    alt: "pL8",
+    link: "/",
+  },
+  {
+    id: uuidv4(),
+    className: "partnersLogo",
+    src: pL9,
+    alt: "pL9",
+    link: "/",
+  },
+  {
+    id: uuidv4(),
+    className: "partnersLogo",
+    src: pL10,
+    alt: "pL10",
+    link: "/",
+  },
+  {
+    id: uuidv4(),
+    className: "partnersLogo",
+    src: pL11,
+    alt: "pL12",
     link: "/",
   },
 ]);

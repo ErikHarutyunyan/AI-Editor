@@ -2,8 +2,9 @@ import styled from "styled-components";
 import { videoBannerBg } from "../../components/Image/Image";
 
 export const VideoWrapper = styled.div`
-  position: relative;
-  background: #150c17;
+  .marq {
+    margin-top: 100px;
+  }
 `;
 
 export const Wrapper = styled.div`
@@ -14,6 +15,9 @@ export const Wrapper = styled.div`
 
 export const Section = styled.section`
   &.banner {
+    position: relative;
+    background: #150c17;
+    overflow: hidden;
     .split {
       padding-top: 96px;
       align-items: center;
@@ -144,6 +148,70 @@ export const Section = styled.section`
     }
     .logoSlide {
       padding-top: 110px;
+    }
+  }
+  &.videoOptions {
+    margin-top: 80px;
+    padding-bottom: 100px;
+    padding: 0 20px;
+    .videoOptions {
+      &Sort {
+        max-width: 187px;
+        width: 100%;
+        margin-left: auto;
+      }
+      &Wrapper {
+        display: flex;
+        margin-top: 17px;
+        column-gap: 45px;
+      }
+      &Filters {
+        display: flex;
+        flex-direction: column;
+        row-gap: 32px;
+        button {
+          background: none;
+          text-align: left;
+          font-family: "Poppins";
+          font-style: normal;
+          font-weight: 400;
+          font-size: 20px;
+          line-height: 30px;
+          color: #000000;
+        }
+      }
+      &Container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 13px;
+        justify-content: center;
+      }
+      &Item {
+        max-width: 359px;
+        width: 100%;
+        max-height: 259px;
+        height: 100%;
+        border-radius: 8px;
+      }
+      &Load {
+        max-width: 196px;
+        width: 100%;
+        margin: 0 auto;
+        margin-top: 48px;
+        border: 2px solid #000000;
+        text-align: center;
+        border-radius: 360px;
+        button {
+          background: none;
+          font-family: "Poppins";
+          font-style: normal;
+          font-weight: 700;
+          font-size: 16px;
+          line-height: 24px;
+          color: #000000;
+          padding: 12px 0px;
+        }
+      }
     }
   }
 `;

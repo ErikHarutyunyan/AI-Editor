@@ -20,7 +20,7 @@ const CardCredit = ({ count, price, sale, per }) => {
             $<span>{per}</span>per credit
           </p>
         </div>
-        <Button mW="180px" className="btnArrow btnPurpleArrow" to="register">
+        <Button mW="180px" className="btnArrow btnPurpleArrow" to="/register">
           <span>Get Now</span>
           <Icon name="arrCirclePurple" />
         </Button>

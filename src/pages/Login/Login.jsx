@@ -24,6 +24,7 @@ import { Wrapper } from "./Login.styles.jsx";
 import useMediaQuery from "../../hooks/useMediaQuery";
 import { size } from "../../themes/Breakpoints";
 import { Shape } from "../../themes/GlobalStyle";
+import Icon from "../../components/Icon";
 
 // const rememberCheck = JSON.parse(localStorage.getItem("userRemember")) || {
 //   email: "",
@@ -31,7 +32,7 @@ import { Shape } from "../../themes/GlobalStyle";
 //   isChecked: false,
 // };
 
-const LeftScreen = () => {
+const Login = () => {
   // const [loginInfo, setLoginInfo] = useState({
   //   ...rememberCheck,
   // });
@@ -103,103 +104,83 @@ const LeftScreen = () => {
 
   return (
     <Wrapper>
-      <Shape position={"absolute"} left={"0"} bottom={"38px"}>
-        <ImgWrapper
-          src={shape1}
-          alt="bgAuth"
-          width={"auto"}
-          height={"auto"}
-          objectFit={"contain"}
-          loading={"lazy"}
-        />
-      </Shape>
-      <form onSubmit={handleSubmit(submitForm)}>
-        <div className="formTitle">
-          <h2>Welcome to Lethia</h2>
-        </div>
-        {/* {error && <Error>{error}</Error>}
-        {errors && <Error msg={errors}/>} */}
-        <div className="formGroup">
-          {errors?.email?.message && <Error>{errors.email.message}</Error>}
-          <Input
-            type="email"
-            className="form-input"
-            placeholder={"Email"}
-            name={"email"}
-            // value={loginInfo.email}
-            schema={{ ...register("email") }}
-            required
-            // callFunc={onChangeValue}
-          />
-        </div>
-        <div className="formGroup">
-          {errors?.password?.message && (
-            <Error>{errors.password.message}</Error>
-          )}
-          <Input
-            type="password"
-            className="form-input"
-            name={"password"}
-            // value={loginInfo.password}
-            placeholder={"Password"}
-            schema={{ ...register("password") }}
-            required
-            // callFunc={onChangeValue}
-          />
-        </div>
-        <div className="formGroup">
-          <Input
-            styleInput={"check"}
-            type={"checkbox"}
-            name={"remember"}
-            className="form-input"
-            text={"Remember Me"}
-            id={"rememberInput"}
-            // callFunc={onChangeCheckbox}
-          />
-        </div>
-        <div className="formForgot">
-          <Link to={"/forgot"}>Forgot password</Link>
-        </div>
-        <div className="formFooter">
-          <Button
-            type="submit"
-            className="btnPurple"
-            disabled={loading}
-            title={"Login"}
-            mW={"268px"}
-            align="center"
-          />
-          <div className="formAsk">
-            <span>You don't have account? </span>
-            <Link to="/register">Sign up</Link>
+      <div className="formWrapper">
+        <form onSubmit={handleSubmit(submitForm)}>
+          <div className="formTitle">
+            <h2>Sign In</h2>
           </div>
-        </div>
-      </form>
-    </Wrapper>
-  );
-};
-const RightScreen = () => {
-  return (
-    <ImgWrapper
-      src={bgAuth}
-      alt="bgAuth"
-      width={"100%"}
-      height={"100%"}
-      objectFit={"cover"}
-      loading={"lazy"}
-    />
-  );
-};
+          {/* {error && <Error>{error}</Error>}
+        {errors && <Error msg={errors}/>} */}
+          <div className="formGroup">
+            {errors?.email?.message && <Error>{errors.email.message}</Error>}
+            <label htmlFor="email">Email</label>
+            <Input
+              id="email"
+              type="email"
+              className="form-input"
+              placeholder={"Insert your email here"}
+              name={"email"}
+              // value={loginInfo.email}
+              schema={{ ...register("email") }}
+              required
+              // callFunc={onChangeValue}
+            />
+          </div>
+          <div className="formGroup">
+            {errors?.password?.message && (
+              <Error>{errors.password.message}</Error>
+            )}
+            <label htmlFor="password">Password</label>
+            <Input
+              id="password"
+              type="password"
+              className="form-input"
+              name={"password"}
+              // value={loginInfo.password}
+              placeholder={"Password"}
+              schema={{ ...register("password") }}
+              required
+              // callFunc={onChangeValue}
+            />
+          </div>
+          <div className="formGroup remember">
+            <Input
+              styleInput={"check"}
+              type={"checkbox"}
+              name={"remember"}
+              className="form-input"
+              text={"Remember Me"}
+              id={"rememberInput"}
+            />
 
-const Login = () => {
-  const isDesktop = useMediaQuery(`(min-width: ${size.tablet})`);
-  return (
-    <Wrapper>
-      <SplitScreen leftWidth={6} rightWidth={isDesktop ? 5 : 0} h={"100vh"}>
-        <LeftScreen />
-        <RightScreen />
-      </SplitScreen>
+            <div className="formForgot">
+              <Link to={"/forgot"}>Forgot password</Link>
+            </div>
+          </div>
+
+          <div className="formFooter">
+            <Button
+              type="submit"
+              className="btnPurple"
+              disabled={loading}
+              title={"Log In"}
+              mW={"100%"}
+              align="center"
+            />
+            <div className="formAsk">
+              <p>Sign in with</p>
+              <div className="logSocial">
+                <button className="btnSocial">
+                  <Icon name="google" />
+                </button>
+                <button className="btnSocial">
+                  <Icon name="facebook" className="socialIcon" />
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
     </Wrapper>
   );
 };

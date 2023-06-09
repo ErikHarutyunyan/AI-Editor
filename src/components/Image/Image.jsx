@@ -14,27 +14,27 @@ import musicVideo from "../../assets/images/musicVideo.jpg";
 import visuaLize from "../../assets/images/visuaLize.jpg";
 import promoLyric from "../../assets/images/promoLyric.jpg";
 import spotifyCanvas from "../../assets/images/spotifyCanvas.jpg";
-import partnerLogo1 from "../../assets/images/partnerLogo1.png";
-import partnerLogo2 from "../../assets/images/partnerLogo2.png";
-import partnerLogo3 from "../../assets/images/partnerLogo3.png";
-import partnerLogo4 from "../../assets/images/partnerLogo4.png";
+// import partnerLogo1 from "../../assets/images/partnerLogo1.png";
+// import partnerLogo2 from "../../assets/images/partnerLogo2.png";
+// import partnerLogo3 from "../../assets/images/partnerLogo3.png";
+// import partnerLogo4 from "../../assets/images/partnerLogo4.png";
 import bgShape from "../../assets/images/bgShape.png";
 import linePurple from "../../assets/images/linePurple.png";
 import dance from "../../assets/images/dance.png";
 import trustpilotLogo from "../../assets/images/trustpilot.png";
 import oicture from "../../assets/images/oicture.png";
 import elipseHome from "../../assets/images/elipseHome.png";
-import partnetLogo1 from "../../assets/images/partnetLogo1.png";
-import partnetLogo2 from "../../assets/images/partnetLogo2.png";
-import partnetLogo3 from "../../assets/images/partnetLogo3.png";
-import partnetLogo4 from "../../assets/images/partnetLogo4.png";
-import partnetLogo5 from "../../assets/images/partnetLogo5.png";
-import partnetLogo6 from "../../assets/images/partnetLogo6.png";
-import partnetLogo7 from "../../assets/images/partnetLogo7.png";
-import partnetLogo8 from "../../assets/images/partnetLogo8.png";
-import partnetLogo9 from "../../assets/images/partnetLogo9.png";
-import partnetLogo10 from "../../assets/images/partnetLogo10.png";
-import partnetLogo11 from "../../assets/images/partnetLogo11.png";
+import partnetLogo1 from "../../assets/images/partnerLogo/partnetLogo1.png";
+import partnetLogo2 from "../../assets/images/partnerLogo/partnetLogo2.png";
+import partnetLogo3 from "../../assets/images/partnerLogo/partnetLogo3.png";
+import partnetLogo4 from "../../assets/images/partnerLogo/partnetLogo4.png";
+import partnetLogo5 from "../../assets/images/partnerLogo/partnetLogo5.png";
+import partnetLogo6 from "../../assets/images/partnerLogo/partnetLogo6.png";
+import partnetLogo7 from "../../assets/images/partnerLogo/partnetLogo7.png";
+import partnetLogo8 from "../../assets/images/partnerLogo/partnetLogo8.png";
+import partnetLogo9 from "../../assets/images/partnerLogo/partnetLogo9.png";
+import partnetLogo10 from "../../assets/images/partnerLogo/partnetLogo10.png";
+import partnetLogo11 from "../../assets/images/partnerLogo/partnetLogo11.png";
 import visual1 from "../../assets/images/visual1.png";
 import visual2 from "../../assets/images/visual2.png";
 import arrowBig from "../../assets/images/arrowBig.png";
@@ -73,8 +73,37 @@ import pricingShape2 from "../../assets/images/pricingShape2.png";
 import videoBanner from "../../assets/images/videoBanner.png";
 import videoBannerBg from "../../assets/images/videoBannerBg.png";
 import shapeVideoBanner from "../../assets/images/shapeVideoBanner.png";
+import videoOptionsItemImg from "../../assets/images/videoOptionsItemImg.png";
+import pL1 from "../../assets/images/partnerLogo/24.png";
+import pL2 from "../../assets/images/partnerLogo/25.png";
+import pL3 from "../../assets/images/partnerLogo/26.png";
+import pL4 from "../../assets/images/partnerLogo/27.png";
+import pL5 from "../../assets/images/partnerLogo/28.png";
+import pL6 from "../../assets/images/partnerLogo/29.png";
+import pL7 from "../../assets/images/partnerLogo/30.png";
+import pL8 from "../../assets/images/partnerLogo/31.png";
+import pL9 from "../../assets/images/partnerLogo/32.png";
+import pL10 from "../../assets/images/partnerLogo/33.png";
+import pL11 from "../../assets/images/partnerLogo/34.png";
+// Register page Images
+import regImage3 from "../../assets/images/register/registerImage3.png";
+import regImage4 from "../../assets/images/register/registerImage4.png";
 
 export {
+  regImage4,
+  regImage3,
+  pL1,
+  pL2,
+  pL3,
+  pL4,
+  pL5,
+  pL6,
+  pL7,
+  pL8,
+  pL9,
+  pL10,
+  pL11,
+  videoOptionsItemImg,
   shapeVideoBanner,
   videoBannerBg,
   videoBanner,
@@ -97,10 +126,10 @@ export {
   visuaLize,
   promoLyric,
   spotifyCanvas,
-  partnerLogo1,
-  partnerLogo2,
-  partnerLogo3,
-  partnerLogo4,
+  // partnerLogo1,
+  // partnerLogo2,
+  // partnerLogo3,
+  // partnerLogo4,
   bgShape,
   linePurple,
   dance,

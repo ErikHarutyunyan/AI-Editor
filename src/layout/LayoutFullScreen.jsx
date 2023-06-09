@@ -11,7 +11,7 @@ const LayoutFullScreen = () => {
   }, []);
   return (
     <>
-      <main>
+      <main style={{ height: "100%" }}>
         <Outlet />
       </main>
       <ScrollRestoration getKey={getKey} />

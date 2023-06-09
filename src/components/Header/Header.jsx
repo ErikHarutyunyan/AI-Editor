@@ -67,13 +67,13 @@ const Header = () => {
             <NavContainer>
               <NavList>
                 <NavItem className="menu" page={segment}>
-                  <NavLink to="/videos">Videos</NavLink>
-                </NavItem>
-                <NavItem className="menu" page={segment}>
-                  <NavLink to="/">Video Clips</NavLink>
+                  <NavLink to="/videos">Video Clips</NavLink>
                 </NavItem>
                 <NavItem className="menu" page={segment}>
                   <NavLink to="/pricing">Pricing</NavLink>
+                </NavItem>
+                <NavItem className="menu" page={segment}>
+                  <NavLink to="/">Support</NavLink>
                 </NavItem>
               </NavList>
             </NavContainer>

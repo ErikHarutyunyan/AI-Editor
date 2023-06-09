@@ -5,16 +5,18 @@ export const DefaultWrapper = styled.div`
 
   input {
     width: 100%;
-    background: var(--color-white);
-    border: 1px solid var(--color-lavender);
-    box-shadow: 0 1px 2px rgba(16, 24, 40, 0.05);
-    border-radius: 8px;
-    padding: 10px 14px;
-    gap: 8px;
-    color: var(--color-flintstone);
-
+    border-bottom: 1px solid #717171;
+    padding-bottom: 16px;
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.04em;
     &::placeholder {
-      color: var(--color-flintstone);
+      color: #717171;
     }
   }
 `;

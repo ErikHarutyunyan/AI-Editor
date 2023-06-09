@@ -247,7 +247,7 @@ const Pricing = () => {
             <Button
               mW="196px"
               className="btnArrow btnPurpleArrow"
-              to="register">
+              to="/register">
               <span>Get Started</span>
               <Icon name="arrCirclePurple" />
             </Button>
